@@ -1,0 +1,1 @@
+xelatex main -output-directory=out

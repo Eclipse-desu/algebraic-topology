@@ -1,0 +1,39 @@
+\begin{tikzpicture}[scale = 0.35, thick]
+	\draw (-4, 0) .. controls (-4, 3) and (4, 3) .. (4, 0);
+	\draw [name path=lower bound] (-4, 0) .. controls (-4, -3) and (4, -3) .. (4, 0);
+	\draw [name path=upper curve] (-1.25, 0) .. controls (-0.875, 0.875) and (0.875, 0.875) .. (1.25, 0);
+	\path [name path=lower curve initial] (-1.5, 0) .. controls (-1, -1) and (1, -1) .. (1.5, 0);
+	\path [name path=xleft1] (-1.25, -1) -- (-1.25, 1);
+	\path [name intersections={of=lower curve initial and xleft1}];
+	\coordinate (A) at (intersection-1);
+	\tikzmath{
+		coordinate \c;
+		\c = (A);
+	}
+	% \draw [shift={($(-1.25, 0) - (A)$)}, name path=lower curve] (-1.5, 0) .. controls (-1, -1) and (1, -1) .. (1.5, 0);
+	\draw [yshift=-\cy, name path=lower curve] (-1.5, 0) .. controls (-1, -1) and (1, -1) .. (1.5, 0);
+	\path [name path=yaxis] (0, 2.3) -- (0, -2.3);
+	\path [name intersections={of=lower curve and yaxis}];
+	\coordinate (B) at (intersection-1);
+	\path [name intersections={of=lower bound and yaxis}];
+	\coordinate (C) at (intersection-1);
+	\tikzmath{
+		coordinate \d, \e;
+		\d = (B);
+		\e = (C);
+	}
+	% \draw ($0.5*{(B) + (C)}$) arc [start angle = 270, end angle = 90, x radius = ${\dy - \ey} / 2$, y radius = ${\dy - \ey} / 2$];
+	\begin{scope}[decoration={markings, mark=at position 0.5 with {\arrow[black, thick]{stealth}}}]
+		\draw [postaction={decorate}] (B) arc [start angle = 90, delta angle = -180, x radius = (\dy - \ey) / 4, y radius = (\dy - \ey) / 2];
+	\end{scope}
+	\draw [dashed] (B) arc [start angle = 90, delta angle = 180, x radius = (\dy - \ey) / 4, y radius = (\dy - \ey) / 2];
+	\tikzmath{
+		let \w = 3.4;
+		let \h = 2.3;
+		let \wshift = -0.1;
+	}
+	\begin{scope}[decoration={markings, mark=at position 0.75 with {\arrow[black, thick]{stealth}}}]
+		\draw (-\w, 0) .. controls (-\w - \wshift, \h) and (\w + \wshift, \h) .. (\w, 0);
+		\draw [postaction={decorate}] (-\w, 0) .. controls (-\w - \wshift, -\h) and (\w + \wshift, -\h) .. (\w, 0);
+	\end{scope}
+\end{tikzpicture}
