@@ -1,0 +1,71 @@
+\section{0-1}
+
+\subsection{} % 1
+甜甜圈 $T$ 可由矩形粘合得到, 因此不妨用 $(-1, -1) - (1, 1)$ 确定的矩形 $S$. 并且设粘合映射为 $q:S \rightarrow T$.
+
+目标是构造去掉一个点的甜甜圈到两个并起来的圆的形变收缩, 可以先将去点矩形缩成边框, 再用粘合映射把边框变成两个圆. 对前者构造同伦 $f_t: S \times [0, 1] \rightarrow S$, 则 $q \circ f$ 就是形变收缩对应的同伦.
+
+不妨再设去掉的点即为原点 $(0, 0)$, 则 $f_t$ 可为原点为中心的径向投影形成的同伦: 首先设 $g:S \rightarrow \partial S$ 是原点出发的径向投影函数, $g(x)$ 即 $(0, 0)$ 出发指向 $x$ 的射线与 $\partial S$ 的交点. 则 $f_t(x) = tg(x) + (1 - t)x$.
+
+\subsection{} % 2
+可取
+$$
+f_t(\bar{x}) := t\dfrac{\bar{x}}{|\bar{x}|} + (1 - t)\bar{x}.
+$$
+
+\subsection{} % 3
+\begin{enumerate}[label=(\alph*)]
+    \item 只需将同伦等价函数以及到恒等的同伦都拼接起来.
+    \item 显然.
+    \item $f:X \rightarrow Y$ 是同伦等价, $e$ 是其同伦等价逆, $g: X \rightarrow Y$ 与之同伦, 则有同伦 $h_t$, $h_0 = f$, $h_1 = g$. 则 $fe \simeq \id{Y}$, $ef \simeq \id{X}$. 而 $h_te: Y \times I \rightarrow Y$ 是连续的, 同时 $h_0e = fe$, $h_1e = ge$, 所以 $h_te$ 是 $fe$, $ge$ 间的同伦. 由 (b) 的结论同伦是等价关系, 所以 $ge \simeq id{Y}$. 同理 $eg \simeq \id{X}$, 因此 $g$ 也是同伦等价.
+\end{enumerate}
+
+\subsection{} % 4
+目标是找 $\iota: A \hookrightarrow X$ 作为同伦等价的逆. 弱形变收缩条件说明存在同伦 $f_t:X \times I \rightarrow X$, $f_0 = \id{X}$; $f_1(A) \subset A$; 对任何 $t$, $f_t(A) \subset A$. 可以借助 $f_t$ 说明 $f_1$ 恰是嵌入映射 $\iota$ 的同伦等价逆.
+
+\begin{enumerate}[label=(\alph*)]
+    \item 说明 $\iota \circ f_1:X \rightarrow A \subset X$ 同伦于 $\id{X}$. 因为 $f_1(X) \subset A$ 以及 $\left.\iota\right|_{A} = \id{A}$, 所以 $\iota \circ f_1 = f_1$. 因此弱形变收缩的条件保证这个同伦成立.
+    \item 说明 $f_1 \circ \iota:A \rightarrow A$ 同伦于 $\id{A}$. 看起来直接复合 $\iota$ 到 $f_t$ 上就可以了. 但要注意 $\id{A}$ 定义域和值域都在 $A$ 上, 所以同伦变化必须在 $A$ 内完成. 幸好条件中 $\forall t, f_t(A) \subset A$ 保证了这一点.
+\end{enumerate}
+
+\subsection{} % 5
+记包含映射 $\iota: V \hookrightarrow U$. 要证明 $\iota$ 零同伦, 即需要找到其在 $V$ 上到常映射 $V \rightarrow x$ 的同伦 $g_t: V \times I \rightarrow U$, $g_0 = \iota$, $g_1 = v \in V \mapsto x$.
+
+$X$ 能形变收缩到点 $x$, 说明有从 $\id{X}$ 到常映射 $y \in X \mapsto x$ 的同伦 $f_t$ 且 $f_t(x) \equiv x$. 自然想到, 将 $f_t$ 限制在 $V \times I$ 上, 若结果是同伦, 问题也就迎刃而解. 因此可以尝试找到一个合适的 $V$.
+
+要让 $f_t$ 限制在 $V \times I$ 上是同伦, 就需要满足 $f_t(V) \subset U$. 因此 $V$ 需要落在 $U$ 在所有时刻的原像里, 即集合 $\cap_{t}f_t^{-1}(U)$里. 因此只需要证明 $x$ 在 $\cap_{t}f_t^{-1}(U)$ 中有一个开邻域. 换句话说, 找到的 $V \times I$ 要包含在 $f^{-1}(U)$ 内.
+
+因为 $f$ 是连续函数, 因此 $f_t$ 也都是连续的, 故 $f^{-1}(U)$ 是开集. $X \times I$ 取乘积拓扑, 因此 $X$ 中的开集和 $I$ 中开区间的笛卡尔积构成的集族
+$$
+\{W \times J : W \subset X \text{open}, J = (a, b) \cap I, a < b\}
+$$
+是 $X \times I$ 的一组拓扑基. 因此任意时刻 $t$ 处, $(x, t) \in f^{-1}(U)$ 有基开邻域 $V_t \times I_t$, 这里 $V_t \subset U \subset X$ 是 $X$ 中的开集, $I_t$ 是 $I$ 中的开区间.
+
+借此得到了一组 $\{V_t \times I_t \subset U \subset X \times I: t \in I\}$, 每个 $V_t \times I_t$ 覆盖 $(x, t)$ 附近的一部分. 故 $I_t$ 构成 $I$ 的开覆盖. 因为 $I = [0, 1]$ 是紧集, 根据有限覆盖性质, 存在有限的子覆盖 $\{I_{t_1}, \cdots, I_{t_n}\}$. 那么我们只需取 $V := \cap_{i = 1}^{n}V_{t_i}$, $V$ 就是开集(开集的有限交)且满足 $V \times I \subset U$. 
+
+\subsection{} % 6
+\begin{enumerate}[label=(\alph*)]
+    \item 取 $f_t(x, y) := (x, ty)$. $f_t$ 是连续函数, 且 $f_0(x, y) = (x, 0)$ 是 $X$ 到线段 $[0, 1] \times {0}$ 的收缩函数, $f_1 = \id{X}$. 此外, 对线段 $[0, 1] \times {0}$ 中的点 $(x, 0)$, $f_t(x, 0) \equiv (x, 0)$, 所以 $\left.f\right|_{[0, 1] \times {0}} = \idnon$. 故 $f_t$ 是 $X$ 到 $[0, 1] \times {0}$ 的形变收缩.
+
+    由上结论, $X$ 显然是可以进一步缩到一个点的, 同时因为 $f_t$ 在线段上始终不变, 很容易让拓展的同伦始终在那个点上保持不变. 即 $X$ 可以形变收缩到线段 $[0, 1] \times {0}$ 上任意一点.
+    
+    至于 $X$ 不能形变收缩到其他单点, 直观的原因可以如下理解: 形变收缩的过程中, 任何一个点都是沿着一条连续的路径移动到终点的. 由于 $X$ 上端的齿仅存在于横坐标有理数处, 这就意味着如果要缩到 $y \not= 0$ 的任意点 $\mathbf{p}$ 处, 距离 $\mathbf{p}$ 再近的点也不能直接移动过去, 而是要沿着自己所在的齿下移, 在 $[0, 1] \times {0}$ 上移动到 $\mathbf{p}$ 对应的横坐标处, 再沿着齿上移. 因此 $\mathbf{p}$ 附近的点都要先跑到离 $\mathbf{p}$ 很远的地方再跑回来, 而形变收缩的连续性要求它们不能都离 $\mathbf{p}$ 太远.
+
+    有了以上的思路, $X$ 不能形变收缩到其他单点可以如下证明: 设 $X$ 通过同伦 $g_t$ 形变收缩到点 $\mathbf{p} = (p_1, p_2), p_2 \not= 0$.取一列 $[0, 1]$ 间收敛到 $p_1$ 的有理数 $\{r_i\}_{i = 1}^{\infty}, r_t \not= p_1$. 则 $(r_i, p_2)$ 收敛到 $(p_1, p_2)$. 
+
+    接下来证明, 任意 $(r_i, p_2)$ 在形变收缩的过程中, 总是要走到 $(r_i, 0)$ 点的:
+    \begin{proofquote}
+        首先, $g_t(r_i, p_2)$ 可以看作 $t$ 为参数的一条连续的曲线, 不妨记之为 $\gamma(t) = (\gamma_x(t), \gamma_y(t))$. 于是 $\gamma_y(t)$ 也是连续函数. 由于 $\gamma_x(0) = r_i$, $\gamma_x(1) = p_1$, 根据介值定理, 取无理数 $s_1 \in [r_i, (r_i + p_2) / 2)$, 一定存在 $t_1$, 其处 $\gamma_x(t_1) = s_1$. 
+
+        类似如上过程, 可以逐个找到 $s_i$ 和 $t_i$, $r_i < s_i < (r_i + s_{i - 1}) / 2$, $t_i < t_{i - 1}$, 且 $\gamma_x(t_i) = s_i$. 因为 $t_i$ 是单调下降且有界的数列, 故其必有极限 $\bar{t}$. 则根据连续性,
+        $$
+        r_i = \lim_{i \rightarrow \infty}\gamma_x(t_i) = \gamma_x(\bar{t})
+        $$
+        也就是说 $\gamma(\bar{t}) = (r_i, 0)$, 结论证毕.
+    \end{proofquote}
+    有了以上的结论, 可知对任意 $i$, 点 $(r_i, p_2)$ 会在某个时刻 $t_i$ 到达 $(r_i, 0)$. 即 $g_{t_i}(r_i, p_2) = (r_i, 0)$. 取 $\{t_i\}$ 的一个收敛子列 $\{t_{i_k}\}_{k = 1}^{\infty}$, 记其极限为 $t$. 则 $(r_{i_k}, p_2, t_{i_k})$ 收敛到 $(p_1, p_2, t)$. 那么根据 $g$ 的连续性, 
+    $$
+    g_t(p_1, p_2) = \lim_{k \rightarrow \infty} g_{t_{i_k}}(r_{i_k}, p_2) = \lim_{k \rightarrow \infty}(r_{i_k}, 0) = (p_1, 0)
+    $$
+    但因为 $g_t$ 在 $(p_1, p_2)$ 上应不变, 即 $g_t(p_1, p_2) = (p_1, p_2)$, 矛盾. 故 $X$ 不能形变收缩到 $\mathbf{p}$ 点, 证讫.
+\end{enumerate} 

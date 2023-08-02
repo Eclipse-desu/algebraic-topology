@@ -2,6 +2,11 @@
 
 \newtheorem{proposition}{性质}[section]
 
+\definecolor{block-gray}{gray}{0.85}
+\newtcolorbox{proofquote}{colback=block-gray,grow to right by=-10mm,grow to left by=-10mm,
+boxrule=0pt,boxsep=0pt,breakable}
+
+\newcommand{\idnon}{\mathbbm{1}}
 \newcommand{\id}[1]{\mathbbm{1}_{#1}}
 \newcommand{\rel}{\mathrm{rel}}
 \newcommand{\RP}[1]{\mathbb{R}\mathrm{P}^{#1}}
