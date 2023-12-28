@@ -1,0 +1,26 @@
+\section{奇异同调·约化同调群}
+
+\begin{proposition}[P109 2.6]
+    若 $X$ 可分解为若干连通分量 $X_{\alpha}$, 则其 $n$ 阶同调群 $H_n(X)$ 同构于分量同调群之直和 $\bigoplus_{\alpha} H_n{X_{\alpha}}$.
+\end{proposition}
+
+\begin{proposition}[P109 2.7]\label{prop::2.7}
+    若 $X$ 非空且道路连通, 则 $H_0(X) \approx \mathbb{Z}$. 对一般的空间, $0$ 阶同调群是若干 $\mathbb{Z}$ 的直和, 其数量为连通分支个数.
+\end{proposition}
+
+\begin{proposition}[P110 2.8]
+    若 $X$ 是一点, 则 $n > 0$ 时 $H_n(X) = 0$, $H_0(X) \approx \mathbb{Z}$.
+\end{proposition}
+
+借此可以引入{\bf 相对同调群}的概念, 相对同调群记作 $\tilde{H}_n(X)$, 来自链复形:
+
+$$
+\cdots \rightarrow C_2(X) \rightarrow C_1(X) \rightarrow C_0(X) \xrightarrow[]{\epsilon} \mathbb{Z} \rightarrow 0
+$$
+这里 $\epsilon(\Sigma_i n_i\sigma_i) = \Sigma_i n_i$, 是在证明\autoref{prop::2.7}时使用的映射. 约化同调和同调的关系是, $n = 0$ 时 $H_0(X) \approx \tilde{H}_0(X) \oplus \mathbb{Z}$, $n > 0$ 时 $H_0(X) \approx \tilde{H}_0(X)$.
+
+\section{同伦等价}
+
+\begin{theorem}[P111 2.10]
+    同伦的映射 $f, g\colon X \rightarrow Y$ 诱导相同的同调群同态 $f_{\ast} = g_{\ast}$. 
+\end{theorem}

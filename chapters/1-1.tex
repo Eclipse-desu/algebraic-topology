@@ -12,3 +12,27 @@
 此时称 $U$ \textbf{受均匀覆盖}(be evenly covered).
 
 如 $X$ 是二维的圆圈, 其覆叠空间 $\tilde{X}$ 可为三维空间中一条无限的弹簧螺线. 对 $X$ 上的一个环 $\omega$, 根据其绕的圈数, 可以在 $\tilde{X}$ 中找到对应的一条螺线 $\tilde{\omega}$, $\omega = p \circ \tilde{\omega}$. 于是 $\tilde{\omega}$ 叫 $\omega$ 的\textbf{提升}(lift). 
+
+\begin{theorem}
+    $\pi_1(S^1)$ 是无限循环群, 由基点于 $(0, 1)$ 的环 $\omega(s) = (\cos 2\pi s, \sin 2\pi s)$ 之同伦类生成.
+\end{theorem}
+
+\begin{theorem}[Brouwer 不动点定理]
+    任何 $D^2 \rightarrow D^2$ 的连续映射 $h$ 都有不动点 $x$, $x = h(x)$.
+\end{theorem}
+
+\begin{theorem}
+    任何连续映射 $f: S^2 \rightarrow \mathbb{R}^2$ 都有一对取值相同的对踵点, 即 $x$, $-x$ 满足 $f(x) = f(-x)$.
+\end{theorem}
+
+\begin{proposition}
+    $\pi_1(X \times Y)$ 同构于 $\pi_1(X) \times \pi_1(Y)$.
+\end{proposition}
+
+\section{Van Kampen 定理}
+
+\begin{theorem}
+    $X$ 是道路连通的开集, 且可有一族道路连通的开集 $A_{\alpha}$ 覆盖, 且这些开集都包含基点 $x_0 \in X$.
+    若任意两个开集之交 $A_{\alpha} \cap A_{\beta}$ 道路连通, 则同态 $\Phi: \ast_{\alpha}\pi_1(A_{\alpha}) \rightarrow \pi_1(X)$ 是满射. 若在此之上任意三个开集之交 $A_{\alpha} \cap A_{\beta} \cap A_{\gamma}$ 仍道路连通, 则 $\Phi$ 的核 $N$ 是正规子群, 由所有形如 $i_{\alpha\beta}(\omega)i_{\beta\alpha}^{-1}(\omega)$ 的元素生成, 其中 $\omega$ 是 $\pi_1(A_{\alpha} \cap A_{\beta})$ 中的元素. 且 $\pi_1(X) \approx \ast_{\alpha}\pi_1(A_{\alpha}) / N$.
+\end{theorem}
+
